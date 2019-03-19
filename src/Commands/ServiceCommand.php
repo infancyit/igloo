@@ -1,10 +1,18 @@
 <?php
 
+<<<<<<< HEAD
 namespace InfancyIt\Igloo\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use InfancyIt\Igloo\GeneratorClass;
+=======
+namespace Farhad\Igloo\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
+use Farhad\Igloo\GeneratorClass;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 use Carbon\Carbon;
 
 class ServiceCommand extends GeneratorClass

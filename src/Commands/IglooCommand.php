@@ -1,11 +1,19 @@
 <?php
 
+<<<<<<< HEAD
 namespace InfancyIt\Igloo\Commands;
+=======
+namespace Farhad\Igloo\Commands;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
+<<<<<<< HEAD
 use InfancyIt\Igloo\GeneratorClass;
+=======
+use Farhad\Igloo\GeneratorClass;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 class IglooCommand extends Command
 {
@@ -22,7 +30,11 @@ class IglooCommand extends Command
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $description = 'Make Model, Repo, Service, Migration, Requests, Requests, Transformer, Route & Controller';
+=======
+    protected $description = 'Make Model, Repo, Service, Migration, Request, Request, Transformer, Route & Controller';
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 
 

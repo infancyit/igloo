@@ -1,11 +1,19 @@
 {
+<<<<<<< HEAD
     "name": "infancyit/igloo",
+=======
+    "name": "farhad/igloo",
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
     "description": "An automated process for create basic CRUD functionality",
     "type": "laravel-helper",
     "license": "MIT",
     "authors": [
         {
+<<<<<<< HEAD
             "name": "Rafik Farhad",
+=======
+            "name": "RafikFarhad",
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
             "email": "rafikfarhad@gmail.com"
         }
     ],
@@ -21,13 +29,21 @@
             "src/Commands"
         ],
         "psr-4": {
+<<<<<<< HEAD
             "InfancyIt\\Igloo\\": "src"
+=======
+            "Farhad\\Igloo\\": "src/"
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
         }
     },
     "extra":{
         "laravel":{
             "providers":[
+<<<<<<< HEAD
                 "InfancyIt\\Igloo\\IglooServiceProvider"
+=======
+                "Farhad\\Igloo\\IglooServiceProvider"
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
             ]
         }
     }

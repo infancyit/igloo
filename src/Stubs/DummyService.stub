@@ -98,6 +98,7 @@ class DummyService extends BaseService
         $dummy = $this->dummyRepository->delete($id);
         return $dummy;
     }
+<<<<<<< HEAD
 
     /**
      *
@@ -117,4 +118,6 @@ class DummyService extends BaseService
         return $dummy;
     }
 
+=======
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 }

@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace InfancyIt\Igloo\Controllers;
+=======
+namespace Farhad\Igloo\Controllers;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 use App\Http\Controllers\Controller;
 use http\Env\Response;
@@ -14,6 +18,7 @@ class AutomateController extends Controller
 {
     public function ping()
     {
+<<<<<<< HEAD
         return response()->json([
             'data' => "Igloo is just fine.",
             "status" => 200
@@ -23,6 +28,12 @@ class AutomateController extends Controller
     public function igloo()
     {
         return view('igloo::index');
+=======
+        return response()->json(json_encode([
+            'data' => "Igloo is just fine.",
+            "status" => 200
+        ]));
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
     }
 
     public function make()
@@ -35,7 +46,11 @@ class AutomateController extends Controller
         ];
         $validation = Validator::make($data, $rules);
         if ($validation->fails()) {
+<<<<<<< HEAD
             return response()->json([
+=======
+            return json_encode([
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
                 'status' => 400,
                 'error' => $validation->errors()
             ]);
@@ -114,8 +129,13 @@ class AutomateController extends Controller
                 'Service' => $service_command,
                 'Migration' => $schema_command,
                 'Transformer' => $transformer_command,
+<<<<<<< HEAD
                 'Requests' => $request_command,
                 'Requests Update' => $request_command_update,
+=======
+                'Request' => $request_command,
+                'Request Update' => $request_command_update,
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
                 'Controller' => $controller_command,
                 'Route' => $route_command,
                 'status' => false

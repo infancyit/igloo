@@ -1,11 +1,19 @@
 <?php
 
+<<<<<<< HEAD
 namespace InfancyIt\Igloo\Commands;
+=======
+namespace Farhad\Igloo\Commands;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+<<<<<<< HEAD
 use InfancyIt\Igloo\GeneratorClass;
+=======
+use Farhad\Igloo\GeneratorClass;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 class CreateRequestCommand extends GeneratorClass
 {
@@ -23,14 +31,22 @@ class CreateRequestCommand extends GeneratorClass
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $description = 'Create new Form Requests with attributes.';
+=======
+    protected $description = 'Create new Form Request with attributes.';
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 
     protected $namespace = 'Http\Requests\\';
 
     protected $files;
 
+<<<<<<< HEAD
     protected $type = 'Requests';
+=======
+    protected $type = 'Request';
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
     /**
      * Create a new command instance.

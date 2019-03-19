@@ -10,6 +10,7 @@
 
 
 ## Change Log
+<<<<<<< HEAD
 
 ### New in v1.2
 - GUI support inside the package
@@ -17,6 +18,10 @@
 - Several Bug Fixed 
 
 ### New in v1.1
+=======
+### New in v1.1
+
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 - Laravel 5.7 Support 
 - Namespace Supports
 - Several Bug Fixed 
@@ -25,6 +30,7 @@
 
 1) To install *Igloo Code Generator*, run the following command:
 
+<<<<<<< HEAD
     ```shell
     composer require infancyit/igloo
     ```
@@ -34,6 +40,17 @@
     ```shell
     php artisan vendor:publish --provider="InfancyIt\Igloo\IglooServiceProvider"
     ```
+=======
+```shell
+composer require farhad/igloo
+```
+
+2) Run the command below to load all configuration file: 
+
+```shell
+php artisan vendor:publish --provider="Farhad\Igloo\IglooServiceProvider"
+```
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 3) For allowing CORS on a API middleware group or route, add the `HandleCors` middleware to `middleware` array in the ```Kernel.php``` file:
    
@@ -160,11 +177,17 @@ The assumption for the controller name will be [**Modelname**]Controller.
 
 ## Installation
 
+<<<<<<< HEAD
 - For bundle create visit
 
     [Igloo Wizard - http://wizard.cse.party](http://wizard.cse.party "Igloo Wizard")
 
 - Or you can visit `\igloo` route after package installation.
+=======
+1) For bundle create visit
+
+[Igloo Wizard - http://wizard.cse.party](http://wizard.cse.party "Igloo Wizard")
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 
 ## License

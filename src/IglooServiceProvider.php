@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 namespace InfancyIt\Igloo;
 
 use InfancyIt\Igloo\Commands\ControllerCommand;
@@ -12,6 +13,20 @@ use InfancyIt\Igloo\Commands\IglooCommand;
 use InfancyIt\Igloo\Commands\ModelCommand;
 use InfancyIt\Igloo\Commands\RepositoryCommand;
 use InfancyIt\Igloo\Commands\ServiceCommand;
+=======
+namespace Farhad\Igloo;
+
+use Farhad\Igloo\Commands\ControllerCommand;
+use Farhad\Igloo\Commands\CreateRequestCommand;
+use Farhad\Igloo\Commands\RouteCommand;
+use Farhad\Igloo\Commands\TransformerCommand;
+use Farhad\Igloo\Commands\UpdateRequestCommand;
+use Illuminate\Support\ServiceProvider;
+use Farhad\Igloo\Commands\IglooCommand;
+use Farhad\Igloo\Commands\ModelCommand;
+use Farhad\Igloo\Commands\RepositoryCommand;
+use Farhad\Igloo\Commands\ServiceCommand;
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
 
 class IglooServiceProvider extends ServiceProvider
 {
@@ -23,6 +38,7 @@ class IglooServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
+<<<<<<< HEAD
             __DIR__ . '/../publish/Repositories/' => app_path('Repositories'),
             __DIR__ . '/../publish/Services/' => app_path('Services'),
             __DIR__ . '/../publish/BaseSettings/' => app_path('BaseSettings'),
@@ -35,6 +51,18 @@ class IglooServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'igloo');
+=======
+            __DIR__ . '/../publish/Rep/' => app_path('Repositories'),
+            __DIR__ . '/../publish/Ser/' => app_path('Services'),
+            __DIR__ . '/../publish/BS/' => app_path('BaseSettings'),
+            __DIR__ . '/../publish/Res/' => app_path('Responses'),
+            __DIR__ . '/../publish/Tran/' => app_path('Transformers'),
+            __DIR__ . '/../publish/Req/' => app_path('Http/Requests'),
+            __DIR__ . '/../publish/config/' => app_path('../config'),
+        ], 'Farhad-Igloo');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
     }
 
     /**
@@ -53,7 +81,11 @@ class IglooServiceProvider extends ServiceProvider
         $this->updateRequestCommandCreator();
         $this->routeCommandCreator();
         $this->controllerCommandCreator();
+<<<<<<< HEAD
         $this->app->make('InfancyIt\Igloo\Controllers\AutomateController');
+=======
+        $this->app->make('Farhad\Igloo\Controllers\AutomateController');
+>>>>>>> ebd6cc870c8aa20af7642a13ab6ad3cda25fbe94
     }
 
 
