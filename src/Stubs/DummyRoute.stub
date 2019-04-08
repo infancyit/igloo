@@ -1,0 +1,8 @@
+///////////////////////////// DUMMY Routes //////////////////////////////
+
+Route::get('dummys', 'DUMMYController@index')->name('dummy.index');
+Route::post('dummys', 'DUMMYController@create')->name('dummy.store');
+Route::get('dummys/{id}', 'DUMMYController@show')->name('dummy.show');
+Route::put('dummys/{id}', 'DUMMYController@update')->name('dummy.update');
+Route::delete('dummys/{id}', 'DUMMYController@delete')->name('dummy.delete');
+Route::get('drop-down/dummys', 'DUMMYController@dropDown')->name('dummy.drop-down');
