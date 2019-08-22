@@ -11,6 +11,7 @@ use App\Repositories\NamespacedDummyRepository;
 use App\Http\Requests\NamespaceFor\DummyCreateRequest;
 use App\Http\Requests\NamespaceFor\DummyUpdateRequest;
 use App\Services\BaseService;
+use Illuminate\Http\JsonResponse;
 use Exception;
 
 class DummyService extends BaseService
@@ -32,7 +33,7 @@ class DummyService extends BaseService
     /**
      * return Repository instance
      *
-     * @return mixed
+     * @return DummyRepository
      */
     public function baseRepository()
     {
@@ -40,7 +41,7 @@ class DummyService extends BaseService
     }
 
     /**
-     * @return \Illuminate\Http\JsonResponse|mixed
+     * @return JsonResponse|mixed
      */
     public function allDummys()
     {
@@ -91,7 +92,7 @@ class DummyService extends BaseService
 
     /**
      * @param $id
-     * @return \Illuminate\Http\JsonResponse|mixed
+     * @return JsonResponse|mixed
      */
     public function deleteDummy($id)
     {
@@ -101,7 +102,7 @@ class DummyService extends BaseService
 
     /**
      *
-     * @return \Illuminate\Http\JsonResponse|mixed
+     * @return JsonResponse|mixed
      */
     public function dropDown()
     {

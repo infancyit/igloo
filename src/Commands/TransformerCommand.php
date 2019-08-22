@@ -26,7 +26,7 @@ class TransformerCommand extends GeneratorClass
     protected $description = 'Create new transformers with attributes.';
 
 
-    protected $namespace = 'Transformers\\';
+    protected $namespace = 'Transformers/';
 
     protected $files;
 
@@ -46,19 +46,19 @@ class TransformerCommand extends GeneratorClass
     /**
      * Parse the class name and format according to the root namespace.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
     protected function qualifyClass($name)
     {
-        return $this->namespace.$name;
+        return $this->namespace . $name;
     }
 
     /**
      * Replace the namespace for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param string $stub
+     * @param string $name
      * @return $this
      */
     protected function replaceNamespace(&$stub, $name)
@@ -70,7 +70,7 @@ class TransformerCommand extends GeneratorClass
                 'DUMMYDATE'
             ],
             [
-                'App\\'.$this->getNamespace($name),
+                'App\\' . $this->getNamespace($name),
                 $this->getOptionalKey('attributes'),
                 Carbon::now()->toDateTimeString()
             ],
@@ -85,18 +85,16 @@ class TransformerCommand extends GeneratorClass
         $fields = $this->argument($optional_key);
         $fields = explode(',', $fields);
         $result = "";
-        foreach ($fields as $field)
-        {
-            if($field == 'id')
-                $result .= "\n            ".str_pad("'".$field."'", 25)."=> (int) $"."entity->".$field.",";
+        foreach ($fields as $field) {
+            if ($field == 'id')
+                $result .= "\n            " . str_pad("'" . $field . "'", 25) . "=> (int) $" . "entity->" . $field . ",";
             else
-                $result .= "\n            ".str_pad("'".$field."'", 25)."=> $"."entity->".$field.",";
+                $result .= "\n            " . str_pad("'" . $field . "'", 25) . "=> $" . "entity->" . $field . ",";
         }
         $result = rtrim($result, ',');
-        if($result=="''") return null;
+        if ($result == "''") return null;
         return $result;
     }
-
 
 
     /**
@@ -117,15 +115,15 @@ class TransformerCommand extends GeneratorClass
      */
     protected function rootNamespace()
     {
-        return rtrim($this->laravel->getNamespace().$this->namespace, '\\');
+        return rtrim($this->laravel->getNamespace() . $this->namespace, '\\');
     }
 
 
     /**
      * Replace the class name for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param string $stub
+     * @param string $name
      * @return string
      */
     protected function replaceClass($stub, $name)

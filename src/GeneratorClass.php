@@ -27,7 +27,7 @@ abstract class GeneratorClass extends Command
     /**
      * Create a new controller creator command instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param \Illuminate\Filesystem\Filesystem $files
      * @return void
      */
     public function __construct()
@@ -41,9 +41,8 @@ abstract class GeneratorClass extends Command
     {
         $fields = $this->option($optional_key);
         $fields = explode(',', $fields);
-        if(sizeof($fields) == 1)
-        {
-            return "'".$fields[0]."'";
+        if (sizeof($fields) == 1) {
+            return "'" . $fields[0] . "'";
         }
         $result = "";
         foreach ($fields as $field) {
@@ -77,7 +76,7 @@ abstract class GeneratorClass extends Command
         // to create the class and overwrite the user's code. So, we will bail out so the
         // code is untouched. Otherwise, we will continue generating this class' files.
         if ($this->alreadyExists($this->getNameInput())) {
-            $this->error($this->type.' already exists!');
+            $this->error($this->type . ' already exists!');
 
             return false;
         }
@@ -89,13 +88,13 @@ abstract class GeneratorClass extends Command
 
         $this->files->put($path, $this->buildClass($name));
 
-        $this->info($this->type.' created successfully.');
+        $this->info($this->type . ' created successfully.');
     }
 
     /**
      * Parse the class name and format according to the root namespace.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
     protected function qualifyClass($name)
@@ -111,14 +110,14 @@ abstract class GeneratorClass extends Command
         $name = str_replace('/', '\\', $name);
 
         return $this->qualifyClass(
-            $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name
+            $this->getDefaultNamespace(trim($rootNamespace, '\\')) . '\\' . $name
         );
     }
 
     /**
      * Get the default namespace for the class.
      *
-     * @param  string  $rootNamespace
+     * @param string $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
@@ -129,7 +128,7 @@ abstract class GeneratorClass extends Command
     /**
      * Determine if the class already exists.
      *
-     * @param  string  $rawName
+     * @param string $rawName
      * @return bool
      */
     protected function alreadyExists($rawName)
@@ -140,25 +139,25 @@ abstract class GeneratorClass extends Command
     /**
      * Get the destination class path.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
     protected function getPath($name)
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . '.php';
     }
 
     /**
      * Build the directory for the class if necessary.
      *
-     * @param  string  $path
+     * @param string $path
      * @return string
      */
     protected function makeDirectory($path)
     {
-        if (! $this->files->isDirectory(dirname($path))) {
+        if (!$this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0777, true, true);
         }
 
@@ -168,7 +167,7 @@ abstract class GeneratorClass extends Command
     /**
      * Build the class with the given name.
      *
-     * @param  string $name
+     * @param string $name
      * @return string
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
@@ -182,8 +181,8 @@ abstract class GeneratorClass extends Command
     /**
      * Replace the namespace for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param string $stub
+     * @param string $name
      * @return $this
      */
     protected function replaceNamespace(&$stub, $name)
@@ -200,7 +199,7 @@ abstract class GeneratorClass extends Command
     /**
      * Get the full namespace for a given class, without the class name.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
      */
     protected function getNamespace($name)
@@ -211,13 +210,13 @@ abstract class GeneratorClass extends Command
     /**
      * Replace the class name for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param string $stub
+     * @param string $name
      * @return string
      */
     protected function replaceClass($stub, $name)
     {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $class = str_replace($this->getNamespace($name) . '\\', '', $name);
 
         return str_replace('DummyModel', $class, $stub);
     }
@@ -236,20 +235,14 @@ abstract class GeneratorClass extends Command
     {
         $fields = trim($this->argument($attribute_key));
         $fields = explode(',', $fields);
-        if(sizeof($fields)==1)
-        {
-            return $fields[0];
-        }
         $result = "";
-        foreach ($fields as $field)
-        {
-            if($field == 'id')
-                ;
-            else
-                $result .= "'".$field."',";
+        foreach ($fields as $field) {
+            if ($field !== 'id') {
+                $result .= "'" . $field . "',";
+            }
         }
         $result = rtrim($result, ',');
-        if($result=="''") return null;
+        if ($result == "''") return null;
         return $result;
     }
 
@@ -260,19 +253,18 @@ abstract class GeneratorClass extends Command
      */
     protected function rootNamespace()
     {
-        return rtrim($this->laravel->getNamespace().$this->namespace, '\\');
+        return rtrim($this->laravel->getNamespace() . $this->namespace, '\\');
     }
 
     /**
      * Returns the pure class name for creation
      *
-     * @param  string $name
+     * @param string $name
      * @return string
      */
     protected function getOnlyClassName($name)
     {
-        if(!$name)
-        {
+        if (!$name) {
             $name = trim($this->argument('name'));
         }
         $class = array_slice(explode('/', $name), -1, 1)[0];
